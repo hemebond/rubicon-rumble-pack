@@ -1,0 +1,220 @@
+This guide explains the working of the new entity types and additions 
+to the old ones.  It is assumed you already know basic Quake mapping 
+terms like keyvalue, target and so on.  If you get stuck, ask on the 
+func_messageboard RRP thread: 
+http://www.celephais.net/board/view_thread.php?id=61077&start=228
+
+The supplied .fgd file will let you map for the mod, although it has 
+some bad entries.
+
+
+T R I G G E R S
+
+"is_waiting" "1" 
+All triggers that are given this keyvalue and value for it will not work 
+until they are targeted by another entity.  This is a very 
+powerful level of control to have in a map for repopulating, 
+triggering new events and so on.
+
+
+Spawnflags 2: No Telefrag Touch
+Spawnflags 4: Only Telefrag Touch
+These should be pretty self explanatory and are related to the 
+telefrag status effect.  Basically, a play with or without the 
+status effect can or cannot touch triggers correspondingly flagged. 
+These can be applied to all triggers.
+
+
+trigger_checkpoint
+forces a quicksave when touched, only works 
+once.  Can also fire a target if given a "target" keyvalue and have
+the various other controls like is_waiting and spawnflags applied.
+
+
+trigger_ladder
+Straight from Rubicon2, allows the player to ascend by jumping when
+touched. Set angle field to direction the player is facing when climbing. (0-360 degrees)
+Can be is_waiting too.(see above)
+
+
+trigger_telefrag
+activates the telefrag status effect on the player when touched.
+Will not affect a player who already has the effect.  If it has the
+spawnflag 1 (MEDBAY) set then it will remove the effect instead of
+applying it.
+
+Whilst telefragged the player cannot jump (much), is weaponstripped,
+loses all ammo, cannot collect items (apart from backpacks) and
+monsters must be closer in order to see the player.
+
+Additionally, a Megahealth or Ward of Ressurection item pickup will
+heal the player and remove the telefragged status effect.
+
+
+trigger_void
+Kills and removes things that touch it.  Does not use the other 
+controls - it just works as a removal trigger without any advanced
+logic behind it.
+
+
+trigger_command
+Used to send a stuffcmd console command to the engine.  For example
+"fog 1\n" would turn the fog on.  Note that the newline \n command 
+is applied at the end - this is to avoid bad things from happening.
+
+Console commands are not saved across respawns, so don't rely on
+this for anythign important.
+
+For a list of console commands, check here:
+http://quake.wikia.com/wiki/Cheats_and_Console_Commands
+
+Or the func_messageboard mapping help thread.
+
+
+trigger_monsterjump
+Spawnflag 1 ONLY_ENRAGED - Monsters will only jump (or more, 
+accurately, be pushed) when injured.  This is buggy and tends to 
+work the instant before a monster is killed.
+
+Spawnflag 2 ONLY_MELEE - will not push the following monsters:
+monster_shalrath
+monster_enforcer
+monster_army
+monster_zombie
+monster_floyd
+monster_hunter
+monster_ogre_marksman
+Note that it will push the other ogre types, and the Dreadnaught.  
+This is useful since you can get melee enemies out of useless 
+positions and give the hordes a slight semblance of intelligence.
+
+
+
+
+R O T A T I N G S
+
+These are the ones taken from hipnotic. Further info here:
+http://tomeofpreach.wordpress.com/quoth/tutorial/rotation-overview/
+
+
+
+R A N D O M I S E R S
+
+This is legacy code that will break if used in large maps. 
+
+It allows you to place a group of info_location entities which are
+controlled by a single info_groupleader.  All the entities to be 
+randomised will appear on one of the info_location spots, 
+inheriting its position and orientation.  The amount of entites
+which will be placed is defined by the groupcount keyvalue, 
+which is applied to the groupleader.
+
+All entities must have the same "group" keyvalue which needs a
+string entry.
+
+Monsters and items can both be randomised.
+
+
+
+
+I T E M S
+There are various new global controls for items.  You'll also 
+notice that there are slightly improved bsp models for some of 
+the ammo boxes.
+
+Spawnflag 32 DONT_DROP - The item will hang in the air and not 
+drop to floor.  Can be used for floating items like in DM or
+to fix items falling out of the level due to geometry proximity.
+
+Spawnflag 64 TRIGGER_SPAWN - The item will not appear until 
+targeted by another entity.  This means it will need a 
+targetname.
+
+Spawnflag 128 - SILENT_RESPAWN - The item will not make the 
+respawn sound when reappearing.  Means applying the respawn 
+value, see below.
+
+Respawning items use the following keyvalues:
+"ritem" "1" - makes the item respawn after it is collected.
+"respawndelay" - how many seconds should pass before the item
+respawns.  This is the default 20 seconds of Quake DM items if
+not set.
+"respawncount" - By default unlimited, if this is set then the
+item will not respawn more times than this number.
+
+item_circuitboard
+This colelctable does nothing on its own, but can be combined 
+with various other entities to give the illusion of a special key
+type.
+
+weapon_axe and weapon_shotgun
+These are included so that they can be collected by a player who
+was telefragged (and therefore weaponstripped).
+
+item_artifact_res
+Effectively a portable medkit.  If one is carried and the player
+reduced to less than 25 health then it will be activated, healing
+the player up to full health over a duration.  It will also be
+consumed in the process.  Carrying multiple ones has no benefit.
+
+
+
+
+
+E V E N T S
+
+trigger_shake
+This causes an earthquake, which is strongest at its epicentre.
+
+"dmg"		Strength of shake, default 120
+"wait"		Duration of shake, default 1
+"count"		radius of shake, default 200
+"noise"		Start sound
+"noise1"	End sound
+
+Spawnflag 1 is VIEWONLY, meaning it will not shake you, just your
+vision.
+
+event_meltdown
+Will kill all players and turn the lights out after a delay. Can be
+toggled off if re-targeted.
+"wait" time before killing everyone
+"noise" Non looping alarm sound to play
+"delay" Time between alarm sounds.
+
+
+
+
+H A Z A R D S A N D T R A P S
+
+fx_beam
+creates a lightning bolt which does heavy damage.
+"count" will automatically turn off after this many seconds. By
+default will just wait to be toggled off by being targeted again.
+
+fx_explosion
+Explodes when targeted.  Spawnflag 1 = EXPLOBOX (big) and 
+spawnflag 4 = TARBABY (blue effect).
+
+func_water
+Sorry, it's buggy and doesn't work so well.  Not recommended for
+use.
+
+func_togglewall
+A very versatile item.  Basically moves itself outside the the 
+world when targeted.  You can use this to make force fields, 
+death traps, appearing rubble or dissapearing walls.
+Can be toggled on/off multiple times.
+Spawnflags 1: START OFF - Must be toggled on
+Spawnflags 8: SEEABLE - Is visible (otherise it works only as
+collision)
+"noise" - sound to play when turned off
+"noise1" - sound to play when turned on
+"noise2" - sound to play when touched
+"dmg" - Damage caused when touched.
+"wait" - Delay between damagings
+
+trap_spikeshooter
+Just a mention that these can have spawnflag 4, which will make
+the lasers blue like a floyd's.  This is just a cosmetic change.
+

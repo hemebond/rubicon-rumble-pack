@@ -1,0 +1,80 @@
+{
+"spawnflags" "0"
+"classname" "worldspawn"
+"_def" "external:C:\Program Files (x86)\Steam\steamapps\common\quake\telefragged\source\telefragged.fgd"
+"wad" "C:\Program Files (x86)\Steam\steamapps\common\quake\telefragged\source\jf2.wad;C:\Program Files (x86)\Steam\steamapps\common\quake\telefragged\source\telefragged.wad;C:\Program Files (x86)\Steam\steamapps\common\quake\telefragged\maps\id.wad"
+"_mod" "telefragged"
+"_point_format" "0"
+{
+( -20 -16 -0 ) ( -20 -16 16 ) ( 44 -16 -0 ) batt0sid 0 -8 0 1 1
+( -4 2 24 ) ( -4 8 24 ) ( 124 2 24 ) batt1top 16 0 0 1 1
+( -4 16 8 ) ( 124 16 8 ) ( -4 16 136 ) batt0sid 0 -8 0 1 1
+( 16 -4 18 ) ( 16 -132 18 ) ( 16 -4 146 ) batt0sid 0 -8 0 1 1
+( -16 -4 14 ) ( -16 -4 142 ) ( -16 -132 14 ) batt0sid 0 -8 0 1 1
+( -6 -12 20 ) ( -6 -140 20 ) ( -0 -12 20 ) batt1top 16 0 0 1 1
+}
+{
+( -37 -15 -0 ) ( -37 -15 16 ) ( 27 -15 -0 ) batt0sid -16 -8 0 1 1
+( -21 15 8 ) ( 107 15 8 ) ( -21 15 136 ) batt0sid -16 -8 0 1 1
+( 15 -9 18 ) ( 15 -137 18 ) ( 15 -9 146 ) batt0sid -16 -8 0 1 1
+( -15 -9 14 ) ( -15 -9 142 ) ( -15 -137 14 ) batt0sid -16 -8 0 1 1
+( -23 -17 20 ) ( -17 -17 20 ) ( -23 -145 20 ) batt0sid -15 -13 0 1 1
+( -25 -17 4 ) ( -25 -145 4 ) ( -17 -17 4 ) batt0sid -15 -13 0 1 1
+}
+{
+( -20 -16 -20 ) ( -20 -16 -4 ) ( 44 -16 -20 ) batt0sid 0 -8 0 1 1
+( -4 2 4 ) ( -4 8 4 ) ( 124 2 4 ) batt1top 16 0 0 1 1
+( -4 16 -12 ) ( 124 16 -12 ) ( -4 16 116 ) batt0sid 0 -8 0 1 1
+( 16 -4 -2 ) ( 16 -132 -2 ) ( 16 -4 126 ) batt0sid 0 -8 0 1 1
+( -16 -4 -6 ) ( -16 -4 122 ) ( -16 -132 -6 ) batt0sid 0 -8 0 1 1
+( -6 -12 -0 ) ( -6 -140 -0 ) ( -0 -12 -0 ) batt1top 16 0 0 1 1
+}
+}
+{
+"spawnflags" "0"
+"classname" "light"
+"origin" "-0 128 16"
+"angle" "-0"
+"light" "250"
+"delay" "4"
+}
+{
+"spawnflags" "0"
+"classname" "light"
+"origin" "-128 -0 16"
+"angle" "-0"
+"light" "250"
+"delay" "4"
+}
+{
+"spawnflags" "0"
+"classname" "light"
+"origin" "-0 -0 128"
+"angle" "-0"
+"light" "300"
+"delay" "4"
+}
+{
+"spawnflags" "0"
+"classname" "light"
+"origin" "-0 -128 16"
+"angle" "-0"
+"light" "250"
+"delay" "4"
+}
+{
+"spawnflags" "0"
+"classname" "light"
+"origin" "128 -0 16"
+"angle" "-0"
+"light" "250"
+"delay" "4"
+}
+{
+"spawnflags" "0"
+"classname" "light"
+"origin" "-0 -0 -128"
+"angle" "-0"
+"light" "200"
+"delay" "4"
+}

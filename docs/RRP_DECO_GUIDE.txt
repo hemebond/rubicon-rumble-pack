@@ -1,0 +1,80 @@
+There are various map objects included in the mod, this describes them.
+
+
+misc_model
+Spawns a .mdl in the level at the point where it is placed.  
+"model" - Which model to use, must have the folder eg. "progs/player.mdl"
+"skin" - Which skin to use, defaults to 0
+"frame" - Which frame
+"angles" - Yaw, Pitch, Roll, in degrees from 0-360.
+
+
+func_breakable
+These have some new stuff for you to play with:
+Spawnflags 1 : NO_MONSTERS - Monsters can't break it
+Spawnflags 2 : NO_PLAYER - the player can't break it
+Spawnflags 4 : ONLY_EXPLOSIONS - Only explosive weapons and enemies with
+explosive attacks can break it.
+"Style" : 0 = green metal, 1 = red metal and 2 = concrete.
+
+
+misc_victim
+A dead Quake guy, has no collision and doesn't fall.  Set the frame and
+the skin will automatically match to it.
+"frame" "0" - On back, no special skin
+"frame" "1" - On back, no face
+"frame" "2" - On front, arm missing
+"frame" "3" - On front, no legs
+"frame" "4" - Sat
+"frame" "5" - On front, decapped
+"frame" "6" - On front, hole in back
+"frame" "7" - On side, ruined abodmoden
+"frame" "8" - Crucified
+"frame" "9" - Impaled through back 
+"frame" "10" - Impaled through front
+"frame" "11" - crucified, leg missing
+"frame" "12" - Crucified, head missing
+
+
+misc_coil
+Preach's animated smoke coil, it can be given the skin keyvalue;
+0 - Grey
+1 - Black
+2 - White
+3 - Hard Green
+4 - Soft Green
+5 - Purple
+6 - Red
+7 - Fire
+Purely decoration, it does nothing.
+
+
+misc_cascade
+Partially implemented waterfall, not recommended for use.
+
+misc_cable
+This was meant for Preach's cable model, but it caused weird crashes. Use
+the misc_model instead if you want that in your map.
+
+
+The following are all working mapobjects, many of them from Preach.
+They do nothing apart from float wherever you place them. Check the models 
+for full details on skins and frames available.
+
+misc_poster
+misc_chain
+misc_vine
+misc_tree (crappy Zer tree, has collision)
+misc_screen_starfield
+misc_screen_levels
+misc_screen_oscill
+misc_helijet
+
+The objects below each produce a unique ambient sound and also have 
+collsion.  They do not have multiple frames or skins.
+
+misc_machine
+misc_portable_generator
+misc_generator
+misc_vent
+

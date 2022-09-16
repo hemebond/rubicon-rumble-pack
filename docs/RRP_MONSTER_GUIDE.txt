@@ -1,0 +1,61 @@
+Here thar be monsters.  You can probably learn most about them 
+by playing the mod, but if you hunger for additional detail 
+then here it is.
+
+S P A W N F L A G S
+
+32: SPAWN_ANGRY - The monster will be angry when target spawned.
+64: SPAWN_TRIGGERED - the monster will not appear until targeted.
+128: SPAWN_SILENT - will not play teleport effects when spawning.
+
+
+M O N S T E R I N F O S
+
+monster_ogre_marksman / monster_ogre
+Only mentioned since marksmen will not jump if touching a 
+trigger_monsterjump that is flagged as MELEE_ONLY, whilst the
+other will.  Also, ogres have 4 skins of various degrees of
+Enforcer style armour on.  Give them the keyvalue "skin" and a
+number of 0-3 to choose one.  The head will be properly skinned
+as well, if it is gibbed.
+
+monster_ogreb
+A base fiend replacement, although with much less health and 
+much slower.  However, he does have the ability of knocking
+the player around the place with each hit, useful near 
+environmental hazards and just for disorientating them.
+
+monster_mr_big
+This guy was never finished, instead he was the prototype for
+the hunter.  Don't use him.
+
+monster_fish
+Smaller than the massive id1 version.
+
+monster_tarbaby
+The following spawnflags make the monster twice as big with
+each sucessive one.  They also make it split into two of the
+smaller versions when killed.
+Spawnflags 4: CHILD
+Spawnflags 8: PARENT
+Spawnflags 16: ANCIENT
+The larger versions are able to spit eyes at the player, move 
+slower and have more health.  When killed they launch a load
+of bouncing eyes around the place.
+
+Additionally, if you place a misc_tarbox and it takes 10 or 
+more damage it will break, unleashing the angry monster.
+
+monster_floyd
+I gave these a new idle pose when turned off - they'll squat
+down, the outer shell covering their feet.  I just thought it
+made them look funny, like a bin.
+
+monster_hunter
+A base Shambler class enemy.  It fires a rapid scattering of 
+tiny rocket type plasma blasts and can punch up close, which
+will knock victims back.  Hitting it with DBS (up close), LG, 
+or explosives can blow one of its arms off, the probability 
+of this happening being skill dependent.  It will explode a
+lot after a duration when killed, which is worth bearing in
+mind.

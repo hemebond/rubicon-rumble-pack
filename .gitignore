@@ -1,0 +1,16 @@
+# Specify filepatterns you want git to ignore.
+
+# maps
+maps/src/autosave/
+*.bsp
+*.log
+*.prt
+*.lit
+*.texinfo
+
+# progs
+*.dat
+*.lno
+
+# quake stuff
+*.sav
